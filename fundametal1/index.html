@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="jquery.validate.min.js"></script>
+
+    <title>The expectation form</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Register for an account</h1>
+        <form id="myForm" action="">
+            <!-- email -->
+            <div class="mb-3 row">
+                <label for="nameInput" class="col-sm-2 col-form-label">Fullname</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="nameInput">
+                </div>
+                <div class="col-sm-4" id="nameMsg"></div>
+            </div>
+            <!-- mobile phone -->
+            <div class="mb-3 row">
+                <label for="mailInput" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="mailInput">
+                </div>
+                <div class="col-sm-4" id="mailMsg"> </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="schoolSelect" class="col-sm-2 col-form-label">Which school you’re attending?</label>
+                <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example">
+                        
+                        <option value="1">University of science and technology</option>
+                        <option value="2">University of economics</option>
+                        <option value="3">University of education
+                        </option>
+                        <option value="4" selected>Other</option>
+                      </select>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="ageInput" class="col-sm-2 col-form-label">Age</label>
+                <div class="col-sm-5">
+                    <input type="range" oninput="this.nextElementSibling.value = this.value" id="ageInput" min="15" max="50" value="18" />
+                    <output>18</output>
+                </div>
+                <div class="col-sm-5" id="ageMsg"> </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="genderSelect" class="col-sm-2 col-form-label">Gender</label>
+                <div class="col-sm-10">
+                    <div class="form-check form-check-inline">
+
+                        <input class="form-check-input" type="radio" name="contactRadioGroup" id="textRadio" value="text" checked>
+                        <label class="form-check-label" for="textRadio">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+
+                        <input class="form-check-input" type="radio" name="contactRadioGroup" id="emailRadio" value="email">
+                        <label class="form-check-label" for="emailRadio">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="dontcontactmeRadio" value="don't contact me">
+                        <label class="form-check-label" for="dontcontactmeRadio">Other</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="select" class="mb-3 row">
+                <label for="sportSelect" class="col-sm-2 col-form-label">Favorite sports</label>
+                <div class="col-sm-6">
+                    <div class="form-check form-check-inline">
+
+                        <input type="checkbox" value="Game" id="game"> Game
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" value="Swim" id="swim"> Swim
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" value="Running" id="running"> Running
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" value="Chess" id="chess"> Chess
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" value="Football" id="football"> Football
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" value="Other" id="other"> Other
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3" id="sportFavouriteMsg"> </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="addressInput" class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-5">
+                    <input type="text" maxlength="100" class="form-control" id="addressInput">
+                </div>
+                <div class="col-sm-5" id="addressMsg"></div>
+            </div>
+            <div class="mb-3 row">
+                <label for="describeInput" class="col-sm-2 col-form-label">Describe Yourself</label>
+                <div class="col-sm-5">
+                    <textarea maxlength="100" rows="" cols="" id="describeInput"></textarea>
+                </div>
+                <div class="col-sm-4" id="describeMsg"></div>
+            </div>
+            <div class="mb-3 row">
+                <label for="tellusInput" class="col-sm-2 col-form-label">Tell us your wish</label>
+                <div class="col-sm-5">
+                    <textarea minlength="10" maxlength="100" rows="" cols="" id="tellusInput"></textarea>
+                </div>
+            </div>
+            <div class="col-sm-5" id="tellusMsg"></div>
+            <div class="mb-3 row">
+                <div class=".col-sm-6">
+                    <button type="button" id="sendBtn" value="Send">Send</button>
+                </div>
+                <div class=".col-sm-6">
+                    <input type="button" onclick="myFunction()" value="Reset">
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+    <script src="./form.js"></script>
+
+</body>
+
+
+</html>
