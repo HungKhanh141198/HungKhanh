@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="search-box form-inline">
+            <div class="form-group col-3">
+                <label for="searchType">Search Type : </label>
+                <select class="form-control" id="searchType">
+                    <option selected value="fullname">Fullname</option>
+                    <option value="email">Email</option>
+                    <option value="BMI">BMI</option>
+                </select>
+            </div>
+            <div class="form-group col-4">
+                <label for="searchKeyword">Keyword : </label>
+                <input type="text" class="form-control" id="searchKeyword" placeholder="Enter keyword">
+            </div>
+            <button type="button" class="btn btn-primary col-2" onclick="handleSearch()">Search</button>
+        </div>
+        <div>
+            <table class="table table-bordered" id="table">
+                <tr>
+                    <th>Full Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>BMI</th>
+                    <th>Health Status</th>
+                    <th>Actions</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="new-user">
+
+            <form id="form">
+                <h3>Add new user</h3>
+                <div class="form-group">
+                    <label for="newUserFullname">FullName</label>
+                    <input type="text" class="form-control" maxlength="50" id="newUserFullname" placeholder="Enter new user's fullname">
+                    <small class="fullnameValidate" class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <label for="newUserAge">Age</label>
+                    <input type="number" class="form-control" id="newUserAge" value="18">
+                    <small class="ageValidate" class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <label for="newUserEmail">Email</label>
+                    <input type="email" class="form-control" id="newUserEmail" placeholder="Enter new user's email">
+                    <small class="emailValidate" class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <label for="newUserGender">Gender</label>
+                    <select class="form-control" id="newUserGender">
+                        <option selected value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="newUserHeight">Height</label>
+                    <input type="number" class="form-control" id="newUserHeight">
+                    <small class="heightValidate" class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <label for="newUserWeight">Weight</label>
+                    <input type="number" class="form-control" id="newUserWeight">
+                    <small class="weightValidate" class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <label for="newUserAddress">Address</label>
+                    <textarea class="form-control" id="newUserAddress" rows="2"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="handleAddUser()">Submit</button>
+            </form>
+        </div>
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+
+                        <h3>Eit user</h3>
+                        <div class="form-group">
+                            <label for="editFullname">FullName</label>
+                            <input type="text" class="form-control" id="editFullname" placeholder="Enter new user's fullname">
+                            <small class="fullnameValidate" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="editAge">Age</label>
+                            <input type="number" class="form-control" id="editAge" value="18">
+                            <small class="newUserAgeValidate" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEmail">Email</label>
+                            <input type="email" class="form-control" id="editEmail" placeholder="Enter new user's email">
+                            <small class="emailValidate" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="editGender">Gender</label>
+                            <select class="form-control" id="editGender">
+                                    <option selected value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editHeight">Height</label>
+                            <input type="number" class="form-control" id="editHeight">
+                            <small class="heightValidate" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="editWeight">Weight</label>
+                            <input type="number" class="form-control" id="editWeight">
+                            <small class="weightValidate" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="editAddress">Address</label>
+                            <textarea class="form-control" id="editAddress" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="editUser()">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./practice.js"></script>
+</body>
